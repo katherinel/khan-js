@@ -3,7 +3,10 @@ var CodeBox = React.createClass({
     return { inputCode: "// var foo = 5;" };
   },
   handleCodeChange: function(e) {
-    console.log(JSON.stringify(esprima.parse(e.target.value)));
+    //console.log(JSON.stringify(esprima.parse(e.target.value)));
+    var json = JSON.stringify(esprima.parse(e.target.value));
+    must_use(json, []);
+
     this.setState({inputCode: e.target.value});
     e.target.value = this.state.inputCode;
   },
