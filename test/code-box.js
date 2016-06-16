@@ -1,8 +1,3 @@
-// A whitelist of specific functionality. 
-// For example, the ability to say "This program MUST use a 'for loop' and a 'variable declaration'."
-
-// pass in an array of the types that should be included e.g. ['ForStatement', 'VariableDeclaration']
-
 var chai = require('chai');
 var expect = chai.expect;
 var should = chai.should();
@@ -42,12 +37,25 @@ describe('CodeBox', function() {
 	    	return false;
 	    }
 	}
+	
+	// A whitelist of specific functionality. 
+	// For example, the ability to say "This program MUST use a 'for loop' and a 'variable declaration'."
 
-	var types = ['ForStatement', 'VariableDeclaration'];
-
+	//var types = ['ForStatement', 'VariableDeclaration'];
 	it('should include a ForStatement', function() {
 		expect(analyzeCode(input, 'ForStatement')).to.equal(true);
 	});
+
+
+	//A blacklist of specific functionality.
+	//For example, the ability to say "This program MUST NOT use a 'while loop' or an 'if statement'."
+
+	it('should not include a ForStatement', function() {
+		expect(analyzeCode(input, 'ForStatement')).to.equal(false);
+	});
+
+
+
 
 });
 
