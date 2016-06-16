@@ -12,31 +12,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.6.2/remarkable.min.js"></script>
     <script src="https://cdn.rawgit.com/jquery/esprima/2.7.2/esprima.js"></script>
     <script src="http://requirejs.org/docs/release/2.2.0/minified/require.js"></script>
+
   </head>
   <body>
-    <div id="mocha"></div>
+    <!--div id="mocha"></div-->
     <div id="content"></div>
-    <!--script src="/node_modules/mocha/mocha.js"></script>
-    <script src="/node_modules/chai/chai.js"></script-->
-    <script type="text/babel" src="scripts/code-box.js"></script>
     <script>
-      require.config({
-        paths: {
-          'mocha': '/node_modules/mocha/mocha',
-          'chai': '/node_modules/chai/chai'
-        }
-      });
+      // require.config({
+      //   paths: {
+      //     'mocha': '/node_modules/mocha/mocha',
+      //     'chai': '/node_modules/chai/chai'
+      //   }
+      // });
 
-      require(['require', 'mocha', 'chai'], function(require) {
-        mocha.setup('bdd');
-        require(['/test/code-box.js'], function() {
-          mocha.run();
-        });
-      });
+      // require(['require', 'mocha', 'chai'], function(require) {
+      //   mocha.setup('bdd');
+      //   require(['/test/code-box.js'], function() {
+      //     mocha.run();
+      //   });
+      // });
     </script>
-    <!--script type="text/babel" src="/test/code-box.js"></script>
-    <script>
-      mocha.run();
-    </script-->
+    <script type="text/babel" src="scripts/code-box.js"></script>
   </body>
 </html>
