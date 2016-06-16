@@ -2,9 +2,14 @@ var chai = require('chai');
 var expect = chai.expect;
 var should = chai.should();
 
-var input = "var foo = 5;"
+// example inputs for now
+var input1 = "var foo = 5; for (i=0; i<5; i++) {}"
+var input2 = "while (true) { if (true) {} }"
+var input3 = "if (foo == bar) { for (var i=0; i<5; i++) { } }"
 
 describe('CodeBox', function() {
+
+	// Helpers
 
 	function traverse(node, func) {
 	    func(node);//1
@@ -37,25 +42,33 @@ describe('CodeBox', function() {
 	    	return false;
 	    }
 	}
+
+
+
+	// Tests 
 	
 	// A whitelist of specific functionality. 
 	// For example, the ability to say "This program MUST use a 'for loop' and a 'variable declaration'."
 
-	//var types = ['ForStatement', 'VariableDeclaration'];
 	it('should include a ForStatement', function() {
-		expect(analyzeCode(input, 'ForStatement')).to.equal(true);
+		expect(analyzeCode(input1, 'ForStatement')).to.equal(true);
 	});
+
 
 
 	//A blacklist of specific functionality.
 	//For example, the ability to say "This program MUST NOT use a 'while loop' or an 'if statement'."
 
-	it('should not include a ForStatement', function() {
-		expect(analyzeCode(input, 'ForStatement')).to.equal(false);
+	it('should not include an IfStatement', function() {
+		expect(analyzeCode(input2, 'IfStatement')).to.equal(false);
 	});
 
 
+	//Determine the rough structure of the program. 
+	//For example, "There should be a 'for loop' and inside of it there should be an 'if statement'."
 
+	it('should have a ForStatement inside of an IfStatement', function() {
 
+	});
 });
 
