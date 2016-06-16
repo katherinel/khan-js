@@ -30,7 +30,6 @@
       require(['require', 'mocha', 'chai'], function(require) {
         mocha.setup('bdd');
         require(['/test/code-box.js'], function() {
-          console.log('testing')
           mocha.run();
         });
       });
