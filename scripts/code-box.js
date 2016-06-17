@@ -93,9 +93,9 @@ var CodeBox = React.createClass({
         <textarea className="codeBox" onChange={this.handleCodeChange} value={this.state.inputCode} />
         <h3>Unit tests:</h3>
 
-        <p>Check that the code contains these types: ForStatement, VariableDeclaration</p>
+        <p><b>Check that the code contains these types: ForStatement, VariableDeclaration</b></p>
         <p id="whitelistResults" className="testResults">{ this.state.whitelist }</p>
-        <p>Check that the code does not contain any of these types: IfStatement, WhileStatement</p>
+        <p><b>Check that the code does not contain any of these types: IfStatement, WhileStatement</b></p>
         <p id="blacklistResults" className="testResults">{ this.state.blacklist }</p>
         <h3>Esprima output:</h3>
         <p className="outputBox">{ JSON.stringify(this.state.outputTree) }</p>
